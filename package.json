@@ -1,0 +1,31 @@
+{
+    "name": "smkn1pml-api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "node ./app.js",
+        "dev": "nodemon ./app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tecopro/smkn1pml-api.git"
+    },
+    "author": "tecopro",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/tecopro/smkn1pml-api/issues"
+    },
+    "homepage": "https://github.com/tecopro/smkn1pml-api#readme",
+    "dependencies": {
+        "axios": "^0.21.1",
+        "body-parser": "^1.18.3",
+        "cheerio": "^1.0.0-rc.5",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.16.4"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.7"
+    }
+}
