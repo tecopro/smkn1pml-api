@@ -19,7 +19,6 @@ module.exports = (app) => {
         .post(controller.wish.post)
     app.route('/wish/:id')
         .put(controller.wish.put)
-    app.route('/wish/:id')
         .delete(controller.wish.remove)
 
     // 404
