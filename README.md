@@ -15,16 +15,14 @@ Hanya Restful API sederhana yang digunakan oleh website [smkn1pml.sch.id](https:
 
 3. Jalankan server
    - Mode pengembangan
-    
-    ```
-    npm run dev
-    ```
+      ```
+      npm run dev
+      ```
 
    - Mode produksi
-    
-    ```
-    npm run start
-    ```
+      ```
+      npm run start
+      ```
 
 ## Endpoint
 
