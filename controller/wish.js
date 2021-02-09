@@ -6,7 +6,7 @@ const response = require('../res'),
 
 // get
 const get = async (req, res) => {
-    let output = wish.filter(doa => doa.status != 1).sort((a, b) => Number(a.id) - Number(b.id))
+    let output = wish.filter(doa => doa.status == 1).sort((a, b) => Number(a.id) - Number(b.id))
     response.approve(output, res)
 }
 
@@ -79,7 +79,7 @@ const put = async (req, res) => {
         return response.disapprove({
             information: `Email yang Anda masukkan tidak valid`
         }, res)
-    } else if (status != 0 || status != 1) {
+    } else if (status != 0 && status != 1) {
         return response.disapprove({
             information: `Status tidak valid`
         }, res)
@@ -92,7 +92,8 @@ const put = async (req, res) => {
             id: id,
             name: name,
             email: email,
-            message: message
+            message: message,
+            status: status
         }
         result.push(data)
         fs.writeFileSync(database, JSON.stringify(result))
