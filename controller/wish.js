@@ -6,7 +6,22 @@ const response = require('../res'),
 
 // get
 const get = async (req, res) => {
-    let output = wish.sort((a, b) => Number(a.id) - Number(b.id))
+    let output = wish.filter(doa => doa.status != 1).sort((a, b) => Number(a.id) - Number(b.id))
+    response.approve(output, res)
+}
+
+// get all wish
+const all = async (req, res) => {
+    let key = req.query.key,
+        output = wish.sort((a, b) => Number(a.id) - Number(b.id))
+
+    if (key !== security) {
+        let output = {
+            information: `Akses Anda ditolak :)`
+        }
+        return response.disapprove(output, res)
+    }
+
     response.approve(output, res)
 }
 
@@ -31,7 +46,8 @@ const post = async (req, res) => {
             id: (max_id + 1),
             name: name,
             email: email,
-            message: message
+            message: message,
+            status: 0
         }
 
     wish.push(data)
@@ -47,7 +63,8 @@ const put = async (req, res) => {
         id = req.params.id,
         name = req.body.name,
         email = req.body.email,
-        message = req.body.message
+        message = req.body.message,
+        status = req.body.status
 
     if (key !== security) {
         let output = {
@@ -61,6 +78,10 @@ const put = async (req, res) => {
     } else if (/\S+@\S+\.\S+/.test(email) !== true) {
         return response.disapprove({
             information: `Email yang Anda masukkan tidak valid`
+        }, res)
+    } else if (status != 0 || status != 1) {
+        return response.disapprove({
+            information: `Status tidak valid`
         }, res)
     }
 
@@ -124,6 +145,7 @@ const remove = async (req, res) => {
 
 module.exports = {
     get,
+    all,
     post,
     put,
     remove

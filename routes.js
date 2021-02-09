@@ -17,6 +17,8 @@ module.exports = (app) => {
     app.route('/wish')
         .get(controller.wish.get)
         .post(controller.wish.post)
+    app.route('/wish/all')
+        .get(controller.wish.all)
     app.route('/wish/:id')
         .put(controller.wish.put)
         .delete(controller.wish.remove)
