@@ -1,0 +1,80 @@
+{
+    "identitas": {
+        "nama": "SMK Negeri 1 Pemalang",
+        "npsn": "20324238",
+        "kepala_sekolah": "Dra. Lutfah Barliana, M.Pd",
+        "alamat": {
+            "jalan": "Jalan Gatot Subroto No. 31",
+            "kodepos": "52319",
+            "kelurahan": "Bojongbata",
+            "kecamatan": "Pemalang",
+            "kabupaten": "Pemalang",
+            "provinsi": "Jawa Tengah"
+        },
+        "status": "NEGERI",
+        "jenjang": "SMK"
+    },
+    "warga": {
+        "operator": "Suryo Demi Agung",
+        "guru": 102,
+        "siswa": {
+            "laki_laki": 627,
+            "perempuan": 1388,
+            "total": 2015,
+            "sanitasi_siswa": 2
+        }
+    },
+    "detail": {
+        "jumlah_rombel": "57",
+        "kurikulum": "SMK 2013 REV. Teknik Kendaraan Ringan Otomotif",
+        "penyelenggaraan": "Sehari Penuh/5 hari",
+        "manajemen_berbasis_sekola": true,
+        "semester_data": "2020/2021-2"
+    },
+    "foto": [
+        "http://foto2.data.kemdikbud.go.id/getImage/20324238/1.jpg",
+        "http://foto2.data.kemdikbud.go.id/getImage/20324238/3.jpg",
+        "http://foto2.data.kemdikbud.go.id/getImage/20324238/4.jpg",
+        "http://foto2.data.kemdikbud.go.id/getImage/20324238/5.jpg",
+        "http://foto2.data.kemdikbud.go.id/getImage/20324238/6.jpg"
+    ],
+    "sarana_prasarana": {
+        "akses_internet": true,
+        "daya_listrik": null,
+        "sumber_listrik": "PLN",
+        "luas_tanah": "14,523 M²",
+        "ruang_kelas": 54,
+        "laboratorium": 1,
+        "perpustakaan": 1
+    },
+    "perizinan": {
+        "naungan": "Kementerian Pendidikan dan Kebudayaan",
+        "sk": {
+            "pendirian": {
+                "no": "36/UK.3/1968",
+                "tanggal": "1968-02-12"
+            },
+            "operasional": {
+                "no": "36/UK.3/1968",
+                "tanggal": "1968-02-12",
+                "file": "http://vervalsp.data.kemdikbud.go.id/verval/dokumen/skoperasional/295681-527137-308750-120665036-960619645.pdf"
+            },
+            "akreditasi": {
+                "no": "053/BAN-SM/SK/2019",
+                "tanggal": "21-01-2019"
+            }
+        },
+        "akreditasi": "A",
+        "iso": "9001:2008"
+    },
+    "kontak": {
+        "website": "https://smkn1pml.sch.id/",
+        "email": "smk1pml@gmail.com",
+        "telepon": "0284321386",
+        "fax": "0284323376"
+    },
+    "koordinat": {
+        "latitude": "-6.9074000",
+        "longitude": "109.3824000"
+    }
+}
