@@ -1,4 +1,5 @@
-# Rest API
+# Rest API SMK
+
 Hanya Restful API sederhana yang digunakan oleh website [smkn1pml.sch.id](https://smkn1pml.sch.id/)
 
 ## Instalasi
@@ -10,24 +11,25 @@ Hanya Restful API sederhana yang digunakan oleh website [smkn1pml.sch.id](https:
 
 2. Install dependencies
    ```
-   npm i --save
+   npm install --save
    ```
 
 3. Jalankan server
-   - Mode pengembangan
+   - Live Reload
       ```
       npm run dev
       ```
 
-   - Mode produksi
+   - Normal
       ```
       npm run start
       ```
 
 ## Endpoint
 
-| Endpoint  | Deskripsi                                                                         |
-| --------- | --------------------------------------------------------------------------------- |
-| `/school` | Detail informasi berdasarkan [Sekolah Kita](http://sekolah.data.kemdikbud.go.id/) |
-| `/wish`   | Daftar keinginan siswa & guru SMK (pengumpulan data saat diesnatalis)             |
-| `...`     | Segera hadir beberapa Endpoint lagi                                               |
+| Endpoint   | Deskripsi                                                                                                                                         |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/school`  | Detail data sekolah berdasarkan [Sekolah Kita](http://sekolah.data.kemdikbud.go.id/) dan [Data Referensi](http://referensi.data.kemdikbud.go.id/) |
+| `/contact` | Pengumpulan pesan masuk (kontak) dari website                                                                                                     |
+| `/wish`    | Daftar keinginan siswa & guru SMK (pengumpulan data saat diesnatalis)                                                                             |
+| `...`      | Segera hadir beberapa Endpoint lagi                                                                                                               |
