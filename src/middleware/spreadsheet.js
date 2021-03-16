@@ -18,9 +18,9 @@ const add = (code, data) => {
     return new Promise((resolve, reject) => {
         let targetUrl = macros.replace('{{gscript_code}}', code)
 
-        var form = new FormData()
+        let form = new FormData()
         for (d in data) {
-            var item = data[d]
+            let item = data[d]
             form.append(d, item)
         }
 
@@ -38,9 +38,9 @@ const change = (code, id, data) => {
     return new Promise((resolve, reject) => {
         let targetUrl = macros.replace('{{gscript_code}}', code)
 
-        var form = new FormData()
+        let form = new FormData()
         for (d in data) {
-            var item = data[d]
+            let item = data[d]
             form.append(d, item)
         }
         // change action
@@ -61,7 +61,7 @@ const remove = (code, id) => {
     return new Promise((resolve, reject) => {
         let targetUrl = macros.replace('{{gscript_code}}', code)
 
-        var form = new FormData()
+        let form = new FormData()
         form.append('action', 'remove')
         form.append('id', id)
 

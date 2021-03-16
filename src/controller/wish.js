@@ -1,3 +1,4 @@
+const { nameValidation, emailValidation, urlValidation } = require('./../helper')
 const { approve, disapprove } = require('../response')
 const spreadsheet = require('./../middleware/spreadsheet')
 
@@ -16,15 +17,23 @@ const retrieve = async (request, response) => {
 const add = async (request, response) => {
     let { name, email, message } = request.body
 
-    if (/^[A-Za-z ]+$/.test(name) !== true) {
+    if (nameValidation(name) === false) {
         let output = {
-            information: `Nama yang Anda masukkan tidak valid`
+            information: `Masukkan nama yang valid`
         }
+
         return disapprove(output, response)
-    } else if (/\S+@\S+\.\S+/.test(email) !== true) {
+    } else if (emailValidation(email) === false) {
         let output = {
-            information: `Email yang Anda masukkan tidak valid`
+            information: `Masukkan email yang valid`
         }
+
+        return disapprove(output, response)
+    } else if (message === undefined || message.trim() === '') {
+        let output = {
+            information: `Permintaan tidak boleh kosong`
+        }
+
         return disapprove(output, response)
     }
 
@@ -35,6 +44,7 @@ const add = async (request, response) => {
         status: 0
     }
     let wish = await spreadsheet.add(gscript, data)
+
     approve(wish.data, response)
 }
 
@@ -47,21 +57,37 @@ const edit = async (request, response) => {
         let output = {
             information: `Akses Anda ditolak :)`
         }
+
         return disapprove(output, response)
-    } else if (/^[A-Za-z ]+$/.test(name) !== true) {
+    } else if (id === undefined || id.trim() === '') {
         let output = {
-            information: `Nama yang Anda masukkan tidak valid`
+            information: `Parameter id tidak boleh kosong`
         }
+
         return disapprove(output, response)
-    } else if (/\S+@\S+\.\S+/.test(email) !== true) {
+    } else if (nameValidation(name) === false) {
         let output = {
-            information: `Email yang Anda masukkan tidak valid`
+            information: `Masukkan nama yang valid`
         }
+
         return disapprove(output, response)
-    } else if (status != 0 && status != 1) {
+    } else if (emailValidation(email) === false) {
+        let output = {
+            information: `Masukkan email yang valid`
+        }
+
+        return disapprove(output, response)
+    } else if (message === undefined || message.trim() === '') {
+        let output = {
+            information: `Permintaan tidak boleh kosong`
+        }
+
+        return disapprove(output, response)
+    } else if (Number(status) !== 0 && Number(status) !== 1) {
         let output = {
             information: `Status tidak valid`
         }
+
         return disapprove(output, response)
     }
 
@@ -79,6 +105,7 @@ const edit = async (request, response) => {
         let output = {
             information: `Data dengan id '${id}' tidak dapat ditemukan`
         }
+
         disapprove(output, response)
     }
 }
@@ -88,9 +115,17 @@ const remove = async (request, response) => {
     let { id } = request.params
 
     if (key !== security) {
-        return disapprove({
+        let output = {
             information: `Akses ini ditolak :)`
-        }, response)
+        }
+
+        return disapprove(output, response)
+    } else if (id === undefined || id.trim() === '') {
+        let output = {
+            information: `Parameter id tidak boleh kosong`
+        }
+
+        return disapprove(output, response)
     }
 
     let result = await spreadsheet.remove(gscript, id)
@@ -101,6 +136,7 @@ const remove = async (request, response) => {
         let output = {
             information: `Data dengan id '${id}' tidak dapat ditemukan`
         }
+
         disapprove(output, response)
     }
 }
@@ -111,6 +147,7 @@ const all = async (request, response) => {
         let output = {
             information: `Akses Anda ditolak :)`
         }
+
         return disapprove(output, response)
     }
 

@@ -1,5 +1,4 @@
 const approve = (values, response) => {
-
     let data = {
         success: true,
         message: 'success',
@@ -9,11 +8,9 @@ const approve = (values, response) => {
     response.set('X-Powered-By', 'SMK Negeri 1 Pemalang')
     response.json(data)
     response.end()
-
 }
 
 const disapprove = (values, response) => {
-
     let data = {
         success: false,
         message: 'failure',
@@ -23,7 +20,6 @@ const disapprove = (values, response) => {
     response.set('X-Powered-By', 'SMK Negeri 1 Pemalang')
     response.json(data)
     response.end()
-
 }
 
 module.exports = {
